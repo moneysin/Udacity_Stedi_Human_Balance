@@ -38,3 +38,66 @@ STEDI has three JSON data sourcee to use from the Step Trainer. Below are the da
     - x
     - y
     - z
+
+Below is the flowchart to understand flow of data and how it is stored in different zones:
+
+![image](https://github.com/user-attachments/assets/30f4d9de-7531-4bd2-881b-c20065b2a360)
+
+Refer to the diagram below to understand the relationship between entities:
+
+![image](https://github.com/user-attachments/assets/e1f1a3ff-f104-458f-ab5d-8e4844fae52c)
+
+## Project Initiation and Completion steps
+
+### 1. Raw data ingestion of above tables into S3 with proper names:
+
+        - customer_landing
+        - accelerometer_landing
+        - step_trainer_landing
+
+    At this point, its not possible to view the data in tabular format, but one can still see the json structure. To query the data in S3, I need to create glue jobs and then using athena, querying on the tables will be easier
+
+### 2. Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
+        
+ **customer_landing.sql**
+
+![image](https://github.com/user-attachments/assets/e8896522-0195-4b53-a559-322f7814c66e)
+
+**accelerometer_landing.sql**
+
+![image](https://github.com/user-attachments/assets/536a55ba-2953-47d9-b7bd-7102bf7d588b)
+
+**step_trainer_landing.sql**
+
+![image](https://github.com/user-attachments/assets/b145e463-26e5-4d1b-959e-334ed28e0c97)
+
+### 3. Use Athena to query the data and record the count in the tables
+
+**a) Table structure screenshot for customer_landing**
+
+![image](https://github.com/user-attachments/assets/7b0b2be8-f378-4ba8-9eef-13feef0210c9)
+
+**a) Count screenshot for customer_landing**
+
+![image](https://github.com/user-attachments/assets/80a19cd2-6ac4-4a35-a871-5623167cfa4f)
+
+**c) Table structure screenshot for accelerometer_landing**
+
+![image](https://github.com/user-attachments/assets/71104d7a-e94b-4902-84c0-24f58b6cbdf5)
+
+**d) Count screenshot for accelerometer_landing**
+
+![image](https://github.com/user-attachments/assets/7c77169b-cb44-412f-a14d-67745f061bbc)
+
+**e) Table structure screenshot for step_trainer_landing**
+
+![image](https://github.com/user-attachments/assets/f2fe9356-58ea-4a6d-8603-cf169d549070)
+
+**f) Count screenshot for step_trainer_landing**
+
+![image](https://github.com/user-attachments/assets/5bcc25eb-a4a1-40f7-9859-ecd4e0c543f7)
+
+
+
+
+

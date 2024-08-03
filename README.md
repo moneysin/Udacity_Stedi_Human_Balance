@@ -57,6 +57,7 @@ Refer to the diagram below to understand the relationship between entities:
 
     At this point, its not possible to view the data in tabular format, but one can still see the json structure. To query the data in S3, I need to create glue jobs and then using athena, querying on the tables will be easier
 
+## Landing Zone
 ### 2. Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
         
  **customer_landing.sql**
@@ -77,27 +78,32 @@ Refer to the diagram below to understand the relationship between entities:
 
 ![image](https://github.com/user-attachments/assets/7b0b2be8-f378-4ba8-9eef-13feef0210c9)
 
-**a) Count screenshot for customer_landing**
+**b) Count screenshot for customer_landing**
 
 ![image](https://github.com/user-attachments/assets/80a19cd2-6ac4-4a35-a871-5623167cfa4f)
 
-**c) Table structure screenshot for accelerometer_landing**
+**c) Screenshot of rows where sharewithresearchasofdate is blank**
+
+![image](https://github.com/user-attachments/assets/2d3704a3-a4de-44eb-b414-c891d5ff667a)
+
+**d) Table structure screenshot for accelerometer_landing**
 
 ![image](https://github.com/user-attachments/assets/71104d7a-e94b-4902-84c0-24f58b6cbdf5)
 
-**d) Count screenshot for accelerometer_landing**
+**e) Count screenshot for accelerometer_landing**
 
 ![image](https://github.com/user-attachments/assets/7c77169b-cb44-412f-a14d-67745f061bbc)
 
-**e) Table structure screenshot for step_trainer_landing**
+**f) Table structure screenshot for step_trainer_landing**
 
 ![image](https://github.com/user-attachments/assets/f2fe9356-58ea-4a6d-8603-cf169d549070)
 
-**f) Count screenshot for step_trainer_landing**
+**g) Count screenshot for step_trainer_landing**
 
 ![image](https://github.com/user-attachments/assets/5bcc25eb-a4a1-40f7-9859-ecd4e0c543f7)
 
+## Trusted Zone
 
-
+**Glue Job for creating customer_trusted data in S3
 
 

@@ -51,11 +51,11 @@ Refer to the diagram below to understand the relationship between entities:
 
 ### 1. Raw data ingestion of above tables into S3 with proper names:
 
-        - customer_landing
-        - accelerometer_landing
-        - step_trainer_landing
+- customer_landing
+- accelerometer_landing
+- step_trainer_landing
 
-    At this point, its not possible to view the data in tabular format, but one can still see the json structure. To query the data in S3, I need to create glue jobs and then using athena, querying on the tables will be easier
+At this point, its not possible to view the data in tabular format, but one can still see the json structure. To query the data in S3, I need to create glue jobs and then using athena, querying on the tables will be easier
 
 ## Landing Zone
 ### 2. Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
@@ -102,8 +102,66 @@ Refer to the diagram below to understand the relationship between entities:
 
 ![image](https://github.com/user-attachments/assets/5bcc25eb-a4a1-40f7-9859-ecd4e0c543f7)
 
-## Trusted Zone
+## 4. Trusted Zone
 
-**Glue Job for creating customer_trusted data in S3
+**a) Glue Job for creating customer_trusted data in S3**
 
+The customer_landing is filtered for rows where sharewithresearchasofdate!=0, which in this case is available to public.
 
+![image](https://github.com/user-attachments/assets/89fd6f95-f557-461a-bc96-0c9ce389a422)
+
+**b) Using Athena, queried customer_trusted data in S3**
+
+The customer_trusted data has 482 rows, where sharewithresearchasofdate!=0.
+
+![image](https://github.com/user-attachments/assets/01c86602-355a-4b55-86e9-33a81a041297)
+
+**c) Glue Job for creating accelerometer_trusted data in S3**
+
+Sanitize the accelerometer data using accelerometer Readings from customers who agreed to share their data for research purposes (customer_trusted).
+
+![image](https://github.com/user-attachments/assets/c2b04821-ce5f-413e-b9c8-232728d50293)
+
+**d) Using Athena, queried accelerometer_trusted data in S3**
+
+The accelerometer_trusted data has 40981 rows, for customers who agreed to share their data for research purposes.
+
+![image](https://github.com/user-attachments/assets/0189af32-0e4f-4d7b-a343-54816084151b)
+
+**e) Glue Job for creating accelerometer_trusted data in S3**
+
+Populate step_trainer_trusted table that contains the Step Trainer Records data for customers who have accelerometer data and have agreed to share their data for research (customers_curated). Creation of curated data is shown in the "Curated Zone" section.
+
+![image](https://github.com/user-attachments/assets/661bd35e-5daa-424d-821e-62500d87538f)
+
+**f) Using Athena, queried step_trainer_trusted data in S3**
+
+The step_trainer_trusted data has 14460 rows, for customers who have accelerometer data and have agreed to share their data for research.
+
+![image](https://github.com/user-attachments/assets/f3e8ccbe-83bc-450d-827e-63c349509bdf)
+
+## 5. Curated Zone
+
+**a) Glue Job for creating customer_curated data in S3**
+
+Customers who have accelerometer data and have agreed to share their data for research called customers_curated.
+
+![image](https://github.com/user-attachments/assets/ec90b11c-8570-459d-b798-12a6a65ac598)
+
+**b) Using Athena, queried customer_curated data in S3**
+
+The customer_curated data has 482 rows.
+
+![image](https://github.com/user-attachments/assets/fb5c917f-33e7-41a8-aebd-fd17a981a92c)
+
+**c) Glue Job for creating machine_learning_curated data in S3**
+
+It is an aggregated table that has each of the Step Trainer Readings (step_trainer_trusted), and the associated accelerometer reading data (accelerometer_trusted) for the same timestamp, but only for customers who have agreed to share their data.
+
+![image](https://github.com/user-attachments/assets/eba7f542-efba-4d55-a5d8-552bad3d5a36)
+
+**d) Using Athena, queried machine_learning_curated data in S3**
+
+The machine_learning_curated data has 43681 rows.
+
+![image](https://github.com/user-attachments/assets/3c5bfe77-0705-4000-a997-7045099460ab)

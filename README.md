@@ -49,7 +49,7 @@ Refer to the diagram below to understand the relationship between entities:
 
 ## Project Initiation and Completion steps
 
-### 1. Raw data ingestion of above tables into S3 with proper names:
+## 1. Raw data ingestion of above tables into S3 with proper names:
 
 - customer_landing
 - accelerometer_landing
@@ -57,8 +57,8 @@ Refer to the diagram below to understand the relationship between entities:
 
 At this point, its not possible to view the data in tabular format, but one can still see the json structure. To query the data in S3, I need to create glue jobs and then using athena, querying on the tables will be easier
 
-## Landing Zone
-### 2. Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
+## 2. Landing Zone
+### Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
         
  **customer_landing.sql**
 
@@ -72,7 +72,7 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 ![image](https://github.com/user-attachments/assets/b145e463-26e5-4d1b-959e-334ed28e0c97)
 
-### 3. Use Athena to query the data and record the count in the tables
+## 3. Use Athena to query the data and record the count in the tables
 
 **a) Table structure screenshot for customer_landing**
 

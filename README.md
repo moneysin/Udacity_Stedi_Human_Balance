@@ -120,13 +120,13 @@ The customer_trusted data has 482 rows, where sharewithresearchasofdate!=0.
 
 Sanitize the accelerometer data using accelerometer Readings from customers who agreed to share their data for research purposes (customer_trusted).
 
-![image](https://github.com/user-attachments/assets/c2b04821-ce5f-413e-b9c8-232728d50293)
+![image](https://github.com/user-attachments/assets/1340a6a8-b614-46b7-92f0-2368b5df8e15)
 
 **d) Using Athena, queried accelerometer_trusted data in S3**
 
 The accelerometer_trusted data has 40981 rows, for customers who agreed to share their data for research purposes.
 
-![image](https://github.com/user-attachments/assets/9e651875-499b-4bb4-bd98-db3e31edc8e2)
+![image](https://github.com/user-attachments/assets/29b1dacd-68a8-499d-8c8a-21f64288d434)
 
 **e) Glue Job for creating step_trainer_trusted data in S3**
 

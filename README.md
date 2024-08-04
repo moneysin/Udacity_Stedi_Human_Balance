@@ -59,18 +59,6 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 ## 2. Landing Zone
 ### Use Glue Studio to ingest data from S3 bucket with below DDL scripts or add tables manually and point it to the S3 location.
-        
- **customer_landing.sql**
-
-![image](https://github.com/user-attachments/assets/e8896522-0195-4b53-a559-322f7814c66e)
-
-**accelerometer_landing.sql**
-
-![image](https://github.com/user-attachments/assets/536a55ba-2953-47d9-b7bd-7102bf7d588b)
-
-**step_trainer_landing.sql**
-
-![image](https://github.com/user-attachments/assets/b145e463-26e5-4d1b-959e-334ed28e0c97)
 
 ## 3. Use Athena to query the data and record the count in the tables
 

@@ -68,11 +68,11 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 **b) Count screenshot for customer_landing**
 
-![image](https://github.com/user-attachments/assets/80a19cd2-6ac4-4a35-a871-5623167cfa4f)
+_Find in the attachment_
 
 **c) Screenshot of rows where sharewithresearchasofdate is blank**
 
-![image](https://github.com/user-attachments/assets/2d3704a3-a4de-44eb-b414-c891d5ff667a)
+_Find in the attachment_
 
 **d) Table structure screenshot for accelerometer_landing**
 
@@ -80,7 +80,7 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 **e) Count screenshot for accelerometer_landing**
 
-![image](https://github.com/user-attachments/assets/7c77169b-cb44-412f-a14d-67745f061bbc)
+_Find in the attachment_
 
 **f) Table structure screenshot for step_trainer_landing**
 
@@ -88,7 +88,7 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 **g) Count screenshot for step_trainer_landing**
 
-![image](https://github.com/user-attachments/assets/5bcc25eb-a4a1-40f7-9859-ecd4e0c543f7)
+_Find in the attachment_
 
 ## 4. Trusted Zone
 
@@ -96,37 +96,37 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 The customer_landing is filtered for rows where sharewithresearchasofdate!=0, which in this case is available to public.
 
-![image](https://github.com/user-attachments/assets/bed63686-7a93-4e79-aa89-68b971934d34)
+_Find in the attachment_
 
 **b) Using Athena, queried customer_trusted data in S3**
 
 The customer_trusted data has 482 rows, where sharewithresearchasofdate!=0.
 
-![image](https://github.com/user-attachments/assets/01c86602-355a-4b55-86e9-33a81a041297)
+_Find in the attachment_
 
 **c) Glue Job for creating accelerometer_trusted data in S3**
 
 Sanitize the accelerometer data using accelerometer Readings from customers who agreed to share their data for research purposes (customer_trusted).
 
-![image](https://github.com/user-attachments/assets/1340a6a8-b614-46b7-92f0-2368b5df8e15)
+_Find in the attachment_
 
 **d) Using Athena, queried accelerometer_trusted data in S3**
 
 The accelerometer_trusted data has 40981 rows, for customers who agreed to share their data for research purposes.
 
-![image](https://github.com/user-attachments/assets/29b1dacd-68a8-499d-8c8a-21f64288d434)
+_Find in the attachment_
 
 **e) Glue Job for creating step_trainer_trusted data in S3**
 
 Populate step_trainer_trusted table that contains the Step Trainer Records data for customers who have accelerometer data and have agreed to share their data for research (customers_curated). Creation of curated data is shown in the "Curated Zone" section.
 
-![image](https://github.com/user-attachments/assets/a5469b38-47d4-4f2e-9469-92c0e6e6e6ce)
+_Find in the attachment_
 
 **f) Using Athena, queried step_trainer_trusted data in S3**
 
 The step_trainer_trusted data has 14460 rows, for customers who have accelerometer data and have agreed to share their data for research.
 
-![image](https://github.com/user-attachments/assets/15ced832-a8b1-4aff-b799-5f02c52d03a5)
+_Find in the attachment_
 
 ## 5. Curated Zone
 
@@ -134,22 +134,22 @@ The step_trainer_trusted data has 14460 rows, for customers who have acceleromet
 
 Customers who have accelerometer data and have agreed to share their data for research called customers_curated.
 
-![image](https://github.com/user-attachments/assets/34780afc-7fe1-45a3-8eed-673eda4b38fe)
+_Find in the attachment_
 
 **b) Using Athena, queried customer_curated data in S3**
 
 The customer_curated data has 482 rows.
 
-![image](https://github.com/user-attachments/assets/fb5c917f-33e7-41a8-aebd-fd17a981a92c)
+_Find in the attachment_
 
 **c) Glue Job for creating machine_learning_curated data in S3**
 
 It is an aggregated table that has each of the Step Trainer Readings (step_trainer_trusted), and the associated accelerometer reading data (accelerometer_trusted) for the same timestamp, but only for customers who have agreed to share their data.
 
-![image](https://github.com/user-attachments/assets/41055d75-b8cc-4346-bc3b-f7a210a4e577)
+_Find in the attachment_
 
 **d) Using Athena, queried machine_learning_curated data in S3**
 
 The machine_learning_curated data has 43681 rows.
 
-![image](https://github.com/user-attachments/assets/3c5bfe77-0705-4000-a997-7045099460ab)
+_Find in the attachment_

@@ -22,7 +22,7 @@ STEDI has three JSON data sourcee to use from the Step Trainer. Below are the da
     - sharewithresearchasofdate
     - customername
     - email
-    - lastupdatedate
+    - lastupdatedat
     - phone
     - sharewithfriendsasofdate
 

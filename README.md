@@ -108,7 +108,7 @@ At this point, its not possible to view the data in tabular format, but one can 
 
 The customer_landing is filtered for rows where sharewithresearchasofdate!=0, which in this case is available to public.
 
-![image](https://github.com/user-attachments/assets/89fd6f95-f557-461a-bc96-0c9ce389a422)
+![image](https://github.com/user-attachments/assets/bed63686-7a93-4e79-aa89-68b971934d34)
 
 **b) Using Athena, queried customer_trusted data in S3**
 
@@ -126,19 +126,19 @@ Sanitize the accelerometer data using accelerometer Readings from customers who 
 
 The accelerometer_trusted data has 40981 rows, for customers who agreed to share their data for research purposes.
 
-![image](https://github.com/user-attachments/assets/0189af32-0e4f-4d7b-a343-54816084151b)
+![image](https://github.com/user-attachments/assets/9e651875-499b-4bb4-bd98-db3e31edc8e2)
 
-**e) Glue Job for creating accelerometer_trusted data in S3**
+**e) Glue Job for creating step_trainer_trusted data in S3**
 
 Populate step_trainer_trusted table that contains the Step Trainer Records data for customers who have accelerometer data and have agreed to share their data for research (customers_curated). Creation of curated data is shown in the "Curated Zone" section.
 
-![image](https://github.com/user-attachments/assets/661bd35e-5daa-424d-821e-62500d87538f)
+![image](https://github.com/user-attachments/assets/a5469b38-47d4-4f2e-9469-92c0e6e6e6ce)
 
 **f) Using Athena, queried step_trainer_trusted data in S3**
 
 The step_trainer_trusted data has 14460 rows, for customers who have accelerometer data and have agreed to share their data for research.
 
-![image](https://github.com/user-attachments/assets/f3e8ccbe-83bc-450d-827e-63c349509bdf)
+![image](https://github.com/user-attachments/assets/15ced832-a8b1-4aff-b799-5f02c52d03a5)
 
 ## 5. Curated Zone
 
@@ -146,7 +146,7 @@ The step_trainer_trusted data has 14460 rows, for customers who have acceleromet
 
 Customers who have accelerometer data and have agreed to share their data for research called customers_curated.
 
-![image](https://github.com/user-attachments/assets/ec90b11c-8570-459d-b798-12a6a65ac598)
+![image](https://github.com/user-attachments/assets/34780afc-7fe1-45a3-8eed-673eda4b38fe)
 
 **b) Using Athena, queried customer_curated data in S3**
 
@@ -158,7 +158,7 @@ The customer_curated data has 482 rows.
 
 It is an aggregated table that has each of the Step Trainer Readings (step_trainer_trusted), and the associated accelerometer reading data (accelerometer_trusted) for the same timestamp, but only for customers who have agreed to share their data.
 
-![image](https://github.com/user-attachments/assets/eba7f542-efba-4d55-a5d8-552bad3d5a36)
+![image](https://github.com/user-attachments/assets/41055d75-b8cc-4346-bc3b-f7a210a4e577)
 
 **d) Using Athena, queried machine_learning_curated data in S3**
 
